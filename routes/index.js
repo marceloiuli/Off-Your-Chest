@@ -1,0 +1,35 @@
+var express = require('express');
+var router = express.Router();
+const passport = require('passport');
+
+//Google Oauth login route
+router.get('/auth/google', passport.authenticate(
+  'google',
+  {
+    scope: ['profile', 'email'],
+    prompt: "select_account"
+  }
+));
+
+//google oauth callback route
+router.get('/oauth2callback', passport.authenticate(
+  'google',
+  {
+    successRedirect: '/',
+    failureRedirect: '/'
+  }
+));
+
+// google oauth logout route
+router.get('/logout', function(req, res){
+  req.logout(function() {
+    res.redirect('/')
+  });
+});
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+module.exports = router;
