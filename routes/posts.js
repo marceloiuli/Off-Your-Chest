@@ -10,6 +10,8 @@ router.get('/new', postsCtrl.new)
 
 router.post('/', postsCtrl.create)
 
-//router.get('/:id', postsCtrl.show)
+router.get('/:id', postsCtrl.show)
+
+router.delete('/:id', postsCtrl.delete)
 
 module.exports = router;

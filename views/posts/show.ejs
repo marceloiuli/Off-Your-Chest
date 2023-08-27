@@ -6,7 +6,12 @@
     <div>Content:</div>
     <div><%= post.content %></div>
     <div>Posted:</div>
-    <div><%=  %></div>
+    <div><%= post.createdAt %></div>
+    <form action="/posts/<%= post.id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Post</button>
+    </form>
+    <!-- <% if(user?._id.equals(post.user)) { %> -->
+    <!-- <% } %> -->
 </section>
 
 <%- include('../partials/footer') %>

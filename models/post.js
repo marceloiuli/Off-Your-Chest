@@ -14,14 +14,14 @@ const Schema = mongoose.Schema;
 // })
 
 const postSchema = new Schema({
-    // user: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'User',
-    //     required: true
-    // },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
     title: {type: String, required: true},
     content: {type: String, required: true},
-    //allowComment: {type: Boolean},
+    allowComment: {type: Boolean},
     // comments: [commentSchema]
 }, {
     timestamps: true
