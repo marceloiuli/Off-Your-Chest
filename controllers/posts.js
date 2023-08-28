@@ -5,7 +5,8 @@ module.exports = {
     create,
     index,
     show,
-    delete: deletePost
+    delete: deletePost,
+    edit
 }
 
 function newPost(req, res) {
@@ -45,4 +46,8 @@ async function deletePost(req, res) {
         'user': req.user.id
     })
     res.redirect('/posts/');
+}
+
+function edit(req, res) {
+    res.render('posts/edit', {title: 'Edit Post Page', errorMsg: ''})
 }
