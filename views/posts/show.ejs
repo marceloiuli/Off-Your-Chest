@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<section>
+<section id="showPost">
     <div>Title:</div>
     <div><%= post.title %></div>
     <div>Content:</div>
@@ -13,6 +13,13 @@
     </form>
     <!-- <% if(user?._id.equals(post.user)) { %> -->
     <!-- <% } %> -->
+</section>
+
+<h3>Comments</h3>
+<section>
+    <form id="newComment" action="">
+        
+    </form>
 </section>
 
 <%- include('../partials/footer') %>
