@@ -7,14 +7,17 @@
     <div><%= post.content %></div>
     <div>Posted:</div>
     <div><%= post.createdAt %></div>
-    <a href="/posts/<%= post.id %>/edit">Update Post</a>
-    <form action="/posts/<%= post.id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete Post</button>
-    </form>
-    <!-- <% if(user?._id.equals(post.user)) { %> -->
-    <!-- <% } %> -->
+    <% if(user?._id.equals(post.user)) { %>
+        <form action="/posts/<%= post.id %>/edit" method="PUT">
+            <button type="submit">Update Post</button>
+        </form>
+        <form action="/posts/<%= post.id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete Post</button>
+        </form>
+    <% } %>
+    
 </section>
-
+<% if (post.allowComment === true) { %>
 <h3>Comments</h3>
 <section>
     <form id="addComment" method="POST" action="/posts/<%= post.id %>/comments">
@@ -29,6 +32,7 @@
         <input type="submit">
     </form>
     <br>
+    <% } %>
 <% if (post.comments.length) { %>
     <table>
         <thead>
@@ -49,7 +53,7 @@
         </tbody>
     </table>
 <% } else { %>
-    <h3>No Comments Yet</h3>
+    <h3>No Comments</h3>
 <% } %>   
 </section>
 
