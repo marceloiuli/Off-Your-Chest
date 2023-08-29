@@ -28,6 +28,29 @@
         </select>
         <input type="submit">
     </form>
+    <br>
+<% if (post.comments.length) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>Posted</th>
+                <th>Comment</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% post.comments.forEach(function(p) { %>
+            <tr>
+                <td><%= p.createdAt.toLocaleDateString() %></td>
+                <td><%= p.content %></td>
+                <td><%= p.rating %></td>
+            </tr>
+        <% }); %>
+        </tbody>
+    </table>
+<% } else { %>
+    <h3>No Comments Yet</h3>
+<% } %>   
 </section>
 
 <%- include('../partials/footer') %>
