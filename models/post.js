@@ -9,7 +9,12 @@ const commentSchema = new Schema({
         required: true
     },
     content: {type: String, required: true},
-    rating: {type: Boolean},
+    rating: {
+        type: Number,
+        min: 1,
+        max: 3,
+        default: 3
+    }
 }, {
     timestamps: true
 })

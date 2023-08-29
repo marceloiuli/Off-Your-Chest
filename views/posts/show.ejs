@@ -17,8 +17,16 @@
 
 <h3>Comments</h3>
 <section>
-    <form id="newComment" action="">
-        
+    <form id="addComment" method="POST" action="/posts/<%= post.id %>/comments">
+        <label>Add Comment</label>
+        <textarea name="content"></textarea>
+        <label>Rating</label>
+        <select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+        </select>
+        <input type="submit">
     </form>
 </section>
 
