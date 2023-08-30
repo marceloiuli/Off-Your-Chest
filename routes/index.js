@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Posts' });
+  res.render('index', { title: 'Welcome to Secret Safe' });
 });
 
 //Google Oauth login route

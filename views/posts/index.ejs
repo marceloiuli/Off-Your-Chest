@@ -1,18 +1,19 @@
 <%- include('../partials/header') %>
 
-<table>
-    <thead>
+<table class="contentTable">
+    <thead class="contentTable">
         <tr>
-            <th>Title</th>
-            <th>Post</th>
+            <th class="contentTable">Title</th>
+            <th class="contentTable">Top Secret Posts</th>
+            <th class="contentTable">Details</th>
         </tr>
     </thead>
     <tbody>
         <% posts.forEach(function(post) { %>
             <tr>
-                <td><%= post.title %></td>
-                <td><%= post.content %></td>
-                <td> <a href="/posts/<%= post.id %>">Post Details</a></td>
+                <td class="contentTable"><%= post.title %></td>
+                <td id="redact" class="contentTable"><%= post.content %></td>
+                <td class="contentTable"> <a href="/posts/<%= post.id %>">Read Post</a></td>
             </tr>
         <% }) %>
     </tbody>

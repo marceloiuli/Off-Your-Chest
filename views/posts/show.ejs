@@ -1,12 +1,11 @@
 <%- include('../partials/header') %>
 
 <section id="showPost">
-    <div>Title:</div>
+    <div class="showHead">Title:</div>
     <div><%= post.title %></div>
-    <div>Content:</div>
+    <div class="showHead">Content:</div>
     <div><%= post.content %></div>
-    <div>Posted:</div>
-    <div><%= post.createdAt %></div>
+    <div class="whenPost">Posted:<%= post.createdAt.toLocaleDateString() %></div>
     <% if(user?._id.equals(post.user)) { %>
         <form action="/posts/<%= post.id %>/edit" method="PUT">
             <button type="submit">Update Post</button>
@@ -17,13 +16,13 @@
     <% } %>
     
 </section>
-<% if (post.allowComment === true) { %>
-<h3>Comments</h3>
+<% if (post.allowComment) { %>
+<h3 class="showHead">Comments</h3>
 <section>
     <form id="addComment" method="POST" action="/posts/<%= post.id %>/comments">
-        <label>Add Comment</label>
+        <label class="showHead">Add Comment</label>
         <textarea name="content"></textarea>
-        <label>Rating</label>
+        <label class="showHead">Rating</label>
         <select name="rating">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -32,29 +31,38 @@
         <input type="submit">
     </form>
     <br>
-    <% } %>
-<% if (post.comments.length) { %>
+    <% if (post.comments.length) { %>
     <table>
         <thead>
             <tr>
-                <th>Posted</th>
+            
                 <th>Comment</th>
+                <th>Posted</th>
                 <th>Rating</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
-        <% post.comments.forEach(function(p) { %>
+        <% post.comments.forEach(function(com) { %>
             <tr>
-                <td><%= p.createdAt.toLocaleDateString() %></td>
-                <td><%= p.content %></td>
-                <td><%= p.rating %></td>
+                <td><%= com.content %></td>
+                <td><%= com.createdAt.toLocaleDateString() %></td>
+                <td><%= com.rating %></td>
+                <td>
+                    <% if(user?._id.equals(com.user)) { %>
+                        <form action="/comments/<%= com.id %>?_method=DELETE" method="POST">
+                            <button type="submit">X</button>
+                        </form>
+                    <% } %>
+                </td>
             </tr>
         <% }); %>
         </tbody>
     </table>
-<% } else { %>
-    <h3>No Comments</h3>
-<% } %>   
+    <% } else { %>
+    <h3 class="showHead">No Comments</h3>
+    <% } %>
+<% } %>
 </section>
 
 <%- include('../partials/footer') %>

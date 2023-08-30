@@ -3,8 +3,9 @@ const router = express.Router();
 const commentsCtrl = require('../controllers/comments');
 
 //All routes start with '/' (root)
-//POST /movies/:id/comments
 router.post('/posts/:id/comments', commentsCtrl.create);
+
+router.delete('/comments/:id', commentsCtrl.delete);
 
 
 module.exports = router;

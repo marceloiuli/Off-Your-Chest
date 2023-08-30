@@ -8,7 +8,13 @@
     <input type="text" name="content" value="<%= post.content %>">
     <br>
     <label>Allow Comments:</label>
-    <input type="checkbox" name="allowComment">
+    <input 
+        type="checkbox"
+        name="allowComment" 
+        <% if (post.allowComment) { %>
+            checked
+        <% } %>
+    >
     <br>
     <button type="submit">Update</button>
 </form>

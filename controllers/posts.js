@@ -15,7 +15,7 @@ function newPost(req, res) {
 }
 
 async function create(req, res) {
-    req.body.allowComment = req.body.allowComment === 'on' ? true : false
+    req.body.allowComment = !!req.body.allowComment
     req.body.user = req.user.id
     try {
         await Post.create(req.body)
@@ -55,7 +55,7 @@ async function edit(req, res) {
 }
 
 async function update(req, res) {
-    console.log('hittin update')
+    req.body.allowComment = !!req.body.allowComment
     try {
         const updatedPost = await Post.findOneAndUpdate(
         {'_id': req.params.id, 'user': req.user._id},

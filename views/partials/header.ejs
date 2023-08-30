@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='/stylesheets/style.css' />
-  <title>Off Your Chest</title>
+  <title>Secret Safe</title>
 </head>
 <body>
-  <nav>
-    <a href="/">Home</a>
+  <nav id="navBar">
+    <img id="logo" src="/images/logo.svg" alt="safe logo">
+    
     <% if (user) { %>
+    <a href="/">Home</a>
     &nbsp;|&nbsp;
     <a href="/posts">All Posts</a>
     &nbsp;|&nbsp;
@@ -21,5 +24,5 @@
     <a href="/auth/google" class="login">LOG IN</a>
     <% } %>
   </nav>
-  <main>
-    <h1><%= title %></h1>
+    <h2 id="title"><%= title %></h2>
+  <main>  
