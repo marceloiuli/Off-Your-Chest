@@ -17,37 +17,38 @@
     
 </section>
 <% if (post.allowComment) { %>
-<h3 class="showHead">Comments</h3>
+<h3 class="showHead">Comments:</h3>
 <section>
     <form id="addComment" method="POST" action="/posts/<%= post.id %>/comments">
-        <label class="showHead">Add Comment</label>
+        <label class="showHead">New Comment</label>
         <textarea name="content"></textarea>
         <label class="showHead">Rating</label>
         <select name="rating">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3" selected>3</option>
+            <option value="keep it to yourself">keep it to yourself</option>
+            <option value="mid">mid</option>
+            <option value="juicy" selected>juicy</option>
         </select>
-        <input type="submit">
+        <br>
+        <button type="submit">Post Comment</button>
     </form>
     <br>
     <% if (post.comments.length) { %>
-    <table>
-        <thead>
+    <table class="commentTable">
+        <thead class="commentTable">
             <tr>
             
-                <th>Comment</th>
-                <th>Posted</th>
-                <th>Rating</th>
+                <th class="commentTable">Comment</th>
+                <th class="commentTable">Posted</th>
+                <th class="commentTable">Rating</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
         <% post.comments.forEach(function(com) { %>
             <tr>
-                <td><%= com.content %></td>
-                <td><%= com.createdAt.toLocaleDateString() %></td>
-                <td><%= com.rating %></td>
+                <td class="commentTable"><%= com.content %></td>
+                <td class="commentTable"><%= com.createdAt.toLocaleDateString() %></td>
+                <td class="commentTable"><%= com.rating %></td>
                 <td>
                     <% if(user?._id.equals(com.user)) { %>
                         <form action="/comments/<%= com.id %>?_method=DELETE" method="POST">

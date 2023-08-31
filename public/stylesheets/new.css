@@ -1,0 +1,49 @@
+body {
+    padding: 50px;
+    font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #d3d3d3;
+}
+  
+a {
+    color: #000000;
+}
+  
+a:hover {
+    color:rgb(255, 0, 0)
+}
+  
+#navBar {
+    display: flex;
+    height: auto;
+    font-family: 'Tektur';
+}
+  
+#logo {
+    margin-right: auto;
+    margin-top: auto;
+    height: 150px;
+}
+  
+#title {
+    text-align: center;
+    font-family: 'Tektur';
+}
+
+#create {
+    font-family: 'Tektur';
+    font-weight: bold;
+    margin: 0 auto;
+    width: 325px;
+}
+
+.new, input {
+    display: block;
+
+}
+
+.new {
+    margin-bottom: 10px;
+}
+
+
+

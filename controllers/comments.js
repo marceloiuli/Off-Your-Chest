@@ -6,7 +6,6 @@ module.exports = {
 }
 
 async function create(req, res) {
-    console.log('hittin create')
     req.body.allowComment = !!req.body.allowComment
     req.body.user = req.user.id
     const post = await Post.findById(req.params.id);
@@ -20,7 +19,6 @@ async function create(req, res) {
 }
 
 async function deleteComment(req, res) {
-    console.log('hittin delete')
     const post = await Post.findOne({
         'comments._id': req.params.id,
         'comments.user': req.user._id

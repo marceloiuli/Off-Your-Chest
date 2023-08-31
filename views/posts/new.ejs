@@ -1,16 +1,16 @@
 <%- include('../partials/header') %>
 
-<form method="POST" action="/posts">
-    <label>Post Title:</label>
-    <input type="text" name="title" placeholder="What's the post about?">
+<form id="create" method="POST" action="/posts">
+    <label class="new">Post Title:</label> 
+        <input type="text" name="title" placeholder="What's the post about?">
     <br>
-    <label>Content:</label>
-    <input type="text" name="content" placeholder="Get it off your chest...">
+    <label class="new">Content:</label>
+        <textarea name="content" rows="10" cols="50" placeholder="Get it off your chest..."></textarea>
     <br>
-    <label>Allow Comments:</label>
-    <input type="checkbox" name="allowComment">
+    <label class="new">Allow Comments:</label>
+    <input class="new" type="checkbox" name="allowComment">
     <br>
-    <button type="submit">Create</button>
+    <button id="createBtn" type="submit">Create Post</button>
 </form>
 
 <%- include('../partials/footer') %>

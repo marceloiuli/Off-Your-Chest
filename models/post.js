@@ -10,10 +10,8 @@ const commentSchema = new Schema({
     },
     content: {type: String, required: true},
     rating: {
-        type: Number,
-        min: 1,
-        max: 3,
-        default: 3
+        type: String,
+        enum: ['keep it to yourself', 'mid', 'juicy']
     }
 }, {
     timestamps: true
