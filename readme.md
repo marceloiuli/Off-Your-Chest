@@ -20,7 +20,7 @@ Home Screen:
 
 ### Getting Started
 
-[Try Secret Safe Here](url "alt text")
+[Try Secret Safe Here](https://secret-safe-b6865f6a97a1.herokuapp.com/ "app link")
 
 1. First things first, you have to log in to access all the features provided in the app. The log in is tied to your google account although none of your information will be accessible to other users. Be sure to read the rules of the app.
 
